@@ -7,6 +7,6 @@ import com.tony.netty.rpc.servicebean.Calculate;
  */
 public class CalculateImpl implements Calculate {
     public int add(int a, int b) {
-        return a+b;
+        return a + b;
     }
 }

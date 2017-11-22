@@ -5,6 +5,7 @@ import com.tony.netty.rpc.core.MessageSendExecutor;
 import java.util.concurrent.CountDownLatch;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  * Author jiangwj20966 on 2017/11/22.
  */
@@ -27,8 +28,9 @@ public class CalcParallelRequestThread implements Runnable {
             signal.await();
 
             Calculate calc = executor.execute(Calculate.class);
+            System.out.printf("request a:%d b:%d\n", taskNumber, taskNumber);
             int add = calc.add(taskNumber, taskNumber);
-            System.out.println("calc add result:[" + add + "]");
+            System.out.println("calc add " + taskNumber + " result:[" + add + "]");
 
             finish.countDown();
         } catch (InterruptedException ex) {

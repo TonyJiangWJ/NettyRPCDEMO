@@ -36,11 +36,11 @@ public class MessageCallBack {
         }
     }
 
-    public void over(MessageResponse reponse) {
+    public void over(MessageResponse response) {
         try {
             lock.lock();
             finish.signal();
-            this.response = reponse;
+            this.response = response;
         } finally {
             lock.unlock();
         }

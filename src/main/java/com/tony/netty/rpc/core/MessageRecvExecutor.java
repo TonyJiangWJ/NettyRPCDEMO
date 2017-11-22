@@ -39,7 +39,7 @@ public class MessageRecvExecutor implements ApplicationContextAware, Initializin
         if (threadPoolExecutor == null) {
             synchronized (MessageRecvExecutor.class) {
                 if (threadPoolExecutor == null) {
-                    threadPoolExecutor = (ThreadPoolExecutor) RpcThreadPool.getExecutor(16, -1);
+                    threadPoolExecutor = (ThreadPoolExecutor) RpcThreadPool.getExecutor(8, -1);
                 }
             }
         }
@@ -48,7 +48,7 @@ public class MessageRecvExecutor implements ApplicationContextAware, Initializin
 
     public void setApplicationContext(ApplicationContext ctx) throws BeansException {
         try {
-            MessageKeyVal keyVal = (MessageKeyVal) ctx.getBean(Class.forName("com.tony.netty.rpc.model.MessageKeyVal"));
+            MessageKeyVal keyVal = (MessageKeyVal) ctx.getBean("rpcbean");// ctx.getBean(Class.forName("com.tony.netty.rpc.model.MessageKeyVal"));
             Map<String, Object> rpcServiceObject = keyVal.getMessageKeyVal();
 
             Set s = rpcServiceObject.entrySet();
@@ -59,7 +59,7 @@ public class MessageRecvExecutor implements ApplicationContextAware, Initializin
                 entry = it.next();
                 handlerMap.put(entry.getKey(), entry.getValue());
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (Exception ex) {
             java.util.logging.Logger.getLogger(MessageRecvExecutor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
