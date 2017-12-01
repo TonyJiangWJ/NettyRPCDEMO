@@ -1,6 +1,6 @@
-package com.tony.netty.rpc.core.client;
+package com.tony.netty.rpc.core.sender;
 
-import com.tony.netty.rpc.core.server.RpcServerLoader;
+import com.tony.netty.rpc.core.RpcServerLoader;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
@@ -28,7 +28,9 @@ public class MessageSendInitializeTask implements Runnable {
     public void run() {
         Bootstrap b = new Bootstrap();
         b.group(eventLoopGroup)
-                .channel(NioSocketChannel.class).option(ChannelOption.SO_KEEPALIVE, true);
+                .channel(NioSocketChannel.class)
+                .option(ChannelOption.SO_KEEPALIVE, true)
+                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 3000);
         b.handler(new MessageSendChannelInitializer());
 
         ChannelFuture channelFuture = b.connect(serverAddress);
@@ -37,8 +39,11 @@ public class MessageSendInitializeTask implements Runnable {
                 if (channelFuture.isSuccess()) {
                     MessageSendHandler handler = channelFuture.channel().pipeline().get(MessageSendHandler.class);
                     MessageSendInitializeTask.this.loader.setMessageSendHandler(handler);
+                } else {
+                    System.err.println("获取连接失败" + serverAddress.getHostName() + ":" + serverAddress.getPort());
                 }
             }
+
         });
     }
 }

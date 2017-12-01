@@ -1,11 +1,19 @@
-package com.tony.netty.rpc.core.server;
+package com.tony.netty.rpc.core.receiver;
 
+import com.tony.netty.rpc.core.NamedThreadFactory;
+import com.tony.netty.rpc.core.RpcThreadPool;
+import com.tony.netty.rpc.core.model.MessageKeyVal;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+
 import java.nio.channels.spi.SelectorProvider;
 import java.util.Iterator;
 import java.util.Map;
@@ -14,11 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.logging.Level;
-import com.tony.netty.rpc.core.model.MessageKeyVal;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
+
 /**
  * Author jiangwj20966 on 2017/11/22.
  */
@@ -73,7 +77,7 @@ public class MessageRecvExecutor implements ApplicationContextAware, Initializin
         int parallel = Runtime.getRuntime().availableProcessors() * 2;
 
         EventLoopGroup boss = new NioEventLoopGroup();
-        EventLoopGroup worker = new NioEventLoopGroup(parallel,threadRpcFactory,SelectorProvider.provider());
+        EventLoopGroup worker = new NioEventLoopGroup(parallel, threadRpcFactory, SelectorProvider.provider());
 
         try {
             ServerBootstrap bootstrap = new ServerBootstrap();

@@ -1,14 +1,17 @@
-package com.tony.netty.rpc.core.server;
+package com.tony.netty.rpc.core;
 
-import com.tony.netty.rpc.core.client.MessageSendHandler;
-import com.tony.netty.rpc.core.client.MessageSendInitializeTask;
+import com.tony.netty.rpc.core.sender.MessageSendHandler;
+import com.tony.netty.rpc.core.sender.MessageSendInitializeTask;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
+
 import java.net.InetSocketAddress;
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * Author jiangwj20966 on 2017/11/22.
  */
@@ -69,7 +72,8 @@ public class RpcServerLoader {
             lock.lock();
             //Netty服务端链路没有建立完毕之前，先挂起等待
             if (messageSendHandler == null) {
-                signal.await();
+                signal.await(30000, TimeUnit.MILLISECONDS);
+                System.err.println("连接超时");
             }
             return messageSendHandler;
         } finally {

@@ -1,4 +1,4 @@
-package com.tony.netty.rpc.core.client;
+package com.tony.netty.rpc.core.sender;
 
 
 import com.tony.netty.rpc.core.model.MessageRequest;
@@ -8,12 +8,14 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+
 import java.net.SocketAddress;
 import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * Author jiangwj20966 on 2017/11/22.
  */
-public class MessageSendHandler  extends ChannelInboundHandlerAdapter {
+public class MessageSendHandler extends ChannelInboundHandlerAdapter {
 
     private ConcurrentHashMap<String, MessageCallBack> mapCallBack = new ConcurrentHashMap<String, MessageCallBack>();
 

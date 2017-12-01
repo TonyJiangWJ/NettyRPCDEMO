@@ -1,4 +1,4 @@
-package com.tony.netty.rpc.core.server;
+package com.tony.netty.rpc.core;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;

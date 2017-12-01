@@ -1,17 +1,19 @@
-package com.tony.netty.rpc.core.server;
+package com.tony.netty.rpc.core.receiver;
 
 
+import com.tony.netty.rpc.core.model.MessageRequest;
+import com.tony.netty.rpc.core.model.MessageResponse;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
-import java.util.Map;
-import com.tony.netty.rpc.core.model.MessageRequest;
-import com.tony.netty.rpc.core.model.MessageResponse;
 import org.apache.commons.beanutils.MethodUtils;
+
+import java.util.Map;
+
 /**
  * Author jiangwj20966 on 2017/11/22.
  */
-public class MessageRecvInitializeTask  implements Runnable {
+public class MessageRecvInitializeTask implements Runnable {
 
     private MessageRequest request = null;
     private MessageResponse response = null;
