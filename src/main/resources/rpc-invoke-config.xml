@@ -14,10 +14,14 @@
                 <entry key="com.tony.netty.rpc.mock.service.Calculate">
                     <ref bean="calc"/>
                 </entry>
+                <entry key="com.tony.netty.rpc.mock.service.ListService">
+                    <ref bean="listService"/>
+                </entry>
             </map>
         </property>
     </bean>
     <bean id="calc" class="com.tony.netty.rpc.mock.service.impl.CalculateImpl"/>
+    <bean id="listService" class="com.tony.netty.rpc.mock.service.impl.ListServiceImpl"/>
     <bean id="rpcServer" class="com.tony.netty.rpc.core.receiver.MessageRecvExecutor">
         <constructor-arg name="serverAddress" value="${rpc.server.addr}"/>
     </bean>
