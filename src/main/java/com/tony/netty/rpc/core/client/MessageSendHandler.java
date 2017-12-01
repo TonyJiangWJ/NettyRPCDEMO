@@ -1,8 +1,8 @@
-package com.tony.netty.rpc.core;
+package com.tony.netty.rpc.core.client;
 
 
-import com.tony.netty.rpc.model.MessageRequest;
-import com.tony.netty.rpc.model.MessageResponse;
+import com.tony.netty.rpc.core.model.MessageRequest;
+import com.tony.netty.rpc.core.model.MessageResponse;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFutureListener;

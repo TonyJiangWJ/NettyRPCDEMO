@@ -1,4 +1,4 @@
-package com.tony.netty.rpc.core;
+package com.tony.netty.rpc.core.server;
 
 
 import io.netty.channel.ChannelInitializer;

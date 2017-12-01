@@ -1,4 +1,4 @@
-package com.tony.netty.rpc.core;
+package com.tony.netty.rpc.core.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.logging.Level;
-import com.tony.netty.rpc.model.MessageKeyVal;
+import com.tony.netty.rpc.core.model.MessageKeyVal;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
@@ -48,7 +48,7 @@ public class MessageRecvExecutor implements ApplicationContextAware, Initializin
 
     public void setApplicationContext(ApplicationContext ctx) throws BeansException {
         try {
-            MessageKeyVal keyVal = (MessageKeyVal) ctx.getBean("rpcbean");// ctx.getBean(Class.forName("com.tony.netty.rpc.model.MessageKeyVal"));
+            MessageKeyVal keyVal = (MessageKeyVal) ctx.getBean("rpcbean");// ctx.getBean(Class.forName("MessageKeyVal"));
             Map<String, Object> rpcServiceObject = keyVal.getMessageKeyVal();
 
             Set s = rpcServiceObject.entrySet();

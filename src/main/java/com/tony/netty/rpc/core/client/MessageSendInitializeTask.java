@@ -1,5 +1,6 @@
-package com.tony.netty.rpc.core;
+package com.tony.netty.rpc.core.client;
 
+import com.tony.netty.rpc.core.server.RpcServerLoader;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
@@ -18,7 +19,7 @@ public class MessageSendInitializeTask implements Runnable {
     private InetSocketAddress serverAddress = null;
     private RpcServerLoader loader = null;
 
-    MessageSendInitializeTask(EventLoopGroup eventLoopGroup, InetSocketAddress serverAddress, RpcServerLoader loader) {
+    public MessageSendInitializeTask(EventLoopGroup eventLoopGroup, InetSocketAddress serverAddress, RpcServerLoader loader) {
         this.eventLoopGroup = eventLoopGroup;
         this.serverAddress = serverAddress;
         this.loader = loader;

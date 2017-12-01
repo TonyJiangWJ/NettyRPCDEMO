@@ -1,8 +1,8 @@
-package com.tony.netty.rpc.core;
+package com.tony.netty.rpc.core.client;
 
 
-import com.tony.netty.rpc.model.MessageRequest;
-import com.tony.netty.rpc.model.MessageResponse;
+import com.tony.netty.rpc.core.model.MessageRequest;
+import com.tony.netty.rpc.core.model.MessageResponse;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;

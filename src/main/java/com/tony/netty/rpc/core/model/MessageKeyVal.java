@@ -1,4 +1,4 @@
-package com.tony.netty.rpc.model;
+package com.tony.netty.rpc.core.model;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package com.tony.netty.rpc.core;
+package com.tony.netty.rpc.core.server;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;

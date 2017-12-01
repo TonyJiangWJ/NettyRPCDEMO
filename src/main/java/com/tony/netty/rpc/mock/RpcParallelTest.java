@@ -1,6 +1,6 @@
-package com.tony.netty.rpc.servicebean;
+package com.tony.netty.rpc.mock;
 
-import com.tony.netty.rpc.core.MessageSendExecutor;
+import com.tony.netty.rpc.core.client.MessageSendExecutor;
 import org.apache.commons.lang3.time.StopWatch;
 
 import java.util.concurrent.CountDownLatch;

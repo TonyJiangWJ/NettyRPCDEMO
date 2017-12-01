@@ -1,4 +1,4 @@
-package com.tony.netty.rpc.servicebean;
+package com.tony.netty.rpc.mock.service;
 
 /**
  * Author jiangwj20966 on 2017/11/22.

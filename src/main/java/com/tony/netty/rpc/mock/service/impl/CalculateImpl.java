@@ -1,6 +1,6 @@
-package com.tony.netty.rpc.servicebean.impl;
+package com.tony.netty.rpc.mock.service.impl;
 
-import com.tony.netty.rpc.servicebean.Calculate;
+import com.tony.netty.rpc.mock.service.Calculate;
 
 /**
  * Author jiangwj20966 on 2017/11/22.

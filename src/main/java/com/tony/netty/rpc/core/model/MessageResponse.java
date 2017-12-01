@@ -1,4 +1,4 @@
-package com.tony.netty.rpc.model;
+package com.tony.netty.rpc.core.model;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;

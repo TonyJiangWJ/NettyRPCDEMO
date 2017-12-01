@@ -1,4 +1,4 @@
-package com.tony.netty.rpc.core;
+package com.tony.netty.rpc.core.server;
 
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ThreadPoolExecutor;

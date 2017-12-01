@@ -1,6 +1,7 @@
-package com.tony.netty.rpc.core;
+package com.tony.netty.rpc.core.client;
 
-import com.tony.netty.rpc.model.MessageRequest;
+import com.tony.netty.rpc.core.server.RpcServerLoader;
+import com.tony.netty.rpc.core.model.MessageRequest;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

@@ -1,12 +1,12 @@
-package com.tony.netty.rpc.core;
+package com.tony.netty.rpc.core.server;
 
 
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import java.util.Map;
-import com.tony.netty.rpc.model.MessageRequest;
-import com.tony.netty.rpc.model.MessageResponse;
+import com.tony.netty.rpc.core.model.MessageRequest;
+import com.tony.netty.rpc.core.model.MessageResponse;
 import org.apache.commons.beanutils.MethodUtils;
 /**
  * Author jiangwj20966 on 2017/11/22.
