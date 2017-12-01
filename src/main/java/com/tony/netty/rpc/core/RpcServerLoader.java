@@ -72,8 +72,9 @@ public class RpcServerLoader {
             lock.lock();
             //Netty服务端链路没有建立完毕之前，先挂起等待
             if (messageSendHandler == null) {
-                signal.await(30000, TimeUnit.MILLISECONDS);
-                System.err.println("连接超时");
+                if(!signal.await(30000, TimeUnit.MILLISECONDS)) {
+                    System.err.println("连接超时");
+                }
             }
             return messageSendHandler;
         } finally {
